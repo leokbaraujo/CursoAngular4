@@ -5,7 +5,7 @@ Aplicativo de Vendas Online Semelhante ao iFood‎ (Apenas Front-End, Back-End M
 
 Clonando o Repositório
 
-git clone https://github.com/cod3rcursos/meat-app-starter.git
+git clone https://github.com/leokbaraujo/CursoAngular4.git
 
 Instalando as Dependências
 
