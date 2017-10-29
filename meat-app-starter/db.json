@@ -370,5 +370,57 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "address": "Mem de Sá",
+      "number": "310",
+      "optionalAddress": "Casa A",
+      "paymentOption": "MON",
+      "orderItens": [
+        {
+          "quantity": 2,
+          "menuId": "zlasagna"
+        },
+        {
+          "quantity": 2,
+          "menuId": "greensandwich"
+        },
+        {
+          "quantity": 3,
+          "menuId": "ceasar"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "address": "Mem de Sá",
+      "number": "310",
+      "optionalAddress": "Casa A",
+      "paymentOption": "MON",
+      "orderItens": [
+        {
+          "quantity": 1,
+          "menuId": "capp"
+        },
+        {
+          "quantity": 1,
+          "menuId": "starb"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "address": "Rua Vasco de Ataide",
+      "number": "100",
+      "optionalAddress": "",
+      "paymentOption": "MON",
+      "orderItens": [
+        {
+          "quantity": 1,
+          "menuId": "cup-cake"
+        }
+      ],
+      "id": 3
+    }
+  ]
 }
