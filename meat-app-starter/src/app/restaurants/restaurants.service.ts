@@ -15,9 +15,9 @@ import { MenuItem } from './../restaurant-detail/menu-item/menu-item.model';
 export class RestaurantsService {
       
     constructor(private http: Http){ }
-
-    restaurants(): Observable<Restaurant[]> {
-        return this.http.get(`${MEAT_API}/restaurants`)
+    //q atributo generico para realizar consultar por qualquer própriedade do objeto
+    restaurants(search?: string): Observable<Restaurant[]> {  
+        return this.http.get(`${MEAT_API}/restaurants`, {params: {q: search}})
                .map(response => response.json())
                .catch(ErroHandler.handleError)
     }
