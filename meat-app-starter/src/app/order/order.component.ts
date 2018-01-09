@@ -6,6 +6,7 @@ import { RadioOption } from '../shared/radio/radio-option.model';
 import { OrderService } from './order.service';
 import { CartItem } from '../restaurant-detail/shopping-cart/cart-item.model';
 import { Order, OrderItem } from '../order/order.model';
+import { unescapeIdentifier } from '@angular/compiler';
 
 
 @Component({
@@ -28,6 +29,8 @@ export class OrderComponent implements OnInit {
   orderForm: FormGroup;
 
   delivery: number = 8;
+
+  orderId: string;
 
   constructor(private orderService: OrderService,
               private router: Router,
@@ -81,10 +84,17 @@ export class OrderComponent implements OnInit {
     order.orderItens = this.cartItems()
       .map((item: CartItem) => new OrderItem(item.quantity, item.menuItem.id));
     this.orderService.checkOrder(order)
+        .do((orderId: string) => {
+          this.orderId = orderId
+        })
         .subscribe( (orderId: string) => {
           this.router.navigate(['/order-summary']);
           this.orderService.clear();
         });
+  }
+
+  isOrderCompleted(): boolean {
+    return this.orderId !== undefined
   }
 
 }
