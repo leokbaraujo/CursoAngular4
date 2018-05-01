@@ -8,6 +8,8 @@ import { CartItem } from '../restaurant-detail/shopping-cart/cart-item.model';
 import { Order, OrderItem } from '../order/order.model';
 import { unescapeIdentifier } from '@angular/compiler';
 
+import { tap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'mt-order',
@@ -86,9 +88,10 @@ export class OrderComponent implements OnInit {
     order.orderItens = this.cartItems()
       .map((item: CartItem) => new OrderItem(item.quantity, item.menuItem.id));
     this.orderService.checkOrder(order)
-        .do((orderId: string) => {
-          this.orderId = orderId
-        })
+        .pipe(tap((orderId: string) => {
+                this.orderId = orderId
+              })
+        )
         .subscribe( (orderId: string) => {
           this.router.navigate(['/order-summary']);
           this.orderService.clear();
